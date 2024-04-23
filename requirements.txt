@@ -35,3 +35,6 @@ pandas
 ipython
 langchain-cohere
 langchain_openai
+nest_asyncio
+pyngrok
+uvicorn
