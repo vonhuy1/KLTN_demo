@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 import start_sv as sv
 
-sv.start_server()
+
 from utils import load_prompt_templates, load_prompts, render_footer, render_github_info
 
 st.set_page_config(page_title="ChatGPT Web", page_icon="🤖")
