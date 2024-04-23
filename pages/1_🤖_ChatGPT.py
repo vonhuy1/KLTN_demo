@@ -11,9 +11,13 @@ from utils import load_prompt_templates, load_prompts, render_footer, render_git
 st.set_page_config(page_title="ChatGPT Web", page_icon="🤖")
 
 
+
+
 @st.cache_resource
-
-
+def init_openai_settings():
+    openai.api_key = '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'
+    if st.secrets.get("OPENAI_PROXY"):
+        openai.proxy = st.secrets["OPENAI_PROXY"]
 
 def init_session():
     if not st.session_state.get("params"):
@@ -387,10 +391,10 @@ def get_openai_response(messages):
     else:
         raise NotImplementedError('Not implemented yet!')
     return response
-NGROK_STATIC_DOMAIN = "romantic-alive-pheasant.ngrok-free.app"
-NGROK_TOKEN="2cMT6GpYf7XXNqR9KSEy9KrsdZb_4pEZpXJ5ZcKD3UFnKR5hf"
+
 
 if __name__ == "__main__":
+    init_openai_settings()
     init_session()
     render_sidebar()
     if st.session_state.get("current_chat"):
