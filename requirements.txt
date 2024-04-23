@@ -38,3 +38,4 @@ langchain_openai
 nest_asyncio
 pyngrok
 uvicorn
+pyOpenSSL
