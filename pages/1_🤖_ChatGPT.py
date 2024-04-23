@@ -12,7 +12,6 @@ st.set_page_config(page_title="ChatGPT Web", page_icon="🤖")
 
 
 @st.cache_resource
-def init_openai_settings():
 
 
 
@@ -392,7 +391,6 @@ NGROK_STATIC_DOMAIN = "romantic-alive-pheasant.ngrok-free.app"
 NGROK_TOKEN="2cMT6GpYf7XXNqR9KSEy9KrsdZb_4pEZpXJ5ZcKD3UFnKR5hf"
 
 if __name__ == "__main__":
-    init_openai_settings()
     init_session()
     render_sidebar()
     if st.session_state.get("current_chat"):
