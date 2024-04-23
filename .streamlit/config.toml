@@ -1,5 +1,5 @@
 [server]
-port = 9090
+port = 8501
 [theme]
 base = 'dark'
 #primaryColor = "#FF4B4B"  # Một màu xanh lá cây tối khác
