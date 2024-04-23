@@ -13,9 +13,7 @@ st.set_page_config(page_title="ChatGPT Web", page_icon="🤖")
 
 @st.cache_resource
 def init_openai_settings():
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
-    if st.secrets.get("OPENAI_PROXY"):
-        openai.proxy = st.secrets["OPENAI_PROXY"]
+
 
 
 def init_session():
