@@ -108,7 +108,7 @@ def render_welcome():
         nav_page("ChatGPT")
 
 if __name__ == '__main__':
-        sv.main()
+
         load_multi_pages()
         render_welcome()
         render_footer()
