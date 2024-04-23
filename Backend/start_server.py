@@ -45,7 +45,4 @@ nest_asyncio.apply()
 # Cần áp dụng nest_asyncio trong Jupyter Notebook
 
 if __name__ == "__main__":
-    ngrok.set_auth_token(NGROK_TOKEN)
-    ngrok_tunnel = ngrok.connect(8000,domain=NGROK_STATIC_DOMAIN)
-    print('Public URL:', ngrok_tunnel.public_url)
     run(app, port=8000)
