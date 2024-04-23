@@ -9,6 +9,7 @@ from streamlit.source_util import (
     get_pages,
     _on_pages_changed
 )
+import start_sv as sv
 
 from utils import render_footer
 
@@ -100,12 +101,14 @@ def nav_page(page_name, timeout_secs=3):
     html(nav_script)
 
 def render_welcome():
+    
     st.header('😃 Greetings!')
     chatting = st.button('Lets Chat')
     if chatting:
         nav_page("ChatGPT")
 
 if __name__ == '__main__':
+        sv.main()
         load_multi_pages()
         render_welcome()
         render_footer()
