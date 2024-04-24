@@ -141,7 +141,7 @@ def render_sidebar_gpt_config_tab(zone):
 
     
     if zone.button("Load File"):
-            api_endpoint = "https://rightly-poetic-amoeba.ngrok-free.app/uploadfile/"
+            api_endpoint = "https://ohhhchank3-kltn.hf.space/uploadfile/"
             uploaded_files = st.session_state["params"]["uploaded_file"]
             if uploaded_files:
                 upload_files_to_api(api_endpoint, uploaded_files)
@@ -276,7 +276,7 @@ def upload_files_to_api(api_endpoint, uploaded_files):
 def render_last_answer(question, chat, zone):
     import requests
 
-    url = "https://rightly-poetic-amoeba.ngrok-free.app/extract_file/"
+    url = "https://ohhhchank3-kltn.hf.space/extract_file/"
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -294,7 +294,7 @@ def render_last_answer(question, chat, zone):
         answer = ""
         chat["answer"].append(answer)
         chat["messages"].append({"role": "assistant", "content": answer})
-        api_endpoint = "https://rightly-poetic-amoeba.ngrok-free.app/query/"
+        api_endpoint = "https://ohhhchank3-kltn.hf.space/query/"
         response = ""
 # Câu hỏi bạn muốn truy vấn
         question_1 = question
