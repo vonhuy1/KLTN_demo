@@ -9,9 +9,9 @@ from streamlit.source_util import (
     get_pages,
     _on_pages_changed
 )
-import start_sv as sv
 
 from utils import render_footer
+
 
 def hide_multi_pages():
     # https://discuss.streamlit.io/t/hide-show-pages-in-multipage-app-based-on-conditions/28642
@@ -19,6 +19,7 @@ def hide_multi_pages():
     page_keys = [key for key, value in current_pages.items() if value['page_name'] != 'Home']
     for key in page_keys:
         del current_pages[key]
+
 
 def load_multi_pages():
     pages = get_pages(__file__)
@@ -37,6 +38,7 @@ def load_multi_pages():
         }
         _on_pages_changed.send()
 
+
 def check_password(form):
     """Returns `True` if the user had a correct password."""
 
@@ -52,6 +54,7 @@ def check_password(form):
             del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
+
     # First run, show inputs for username + password.
     # login_form = st.form(key='login')
     form.header('Login')
@@ -72,6 +75,7 @@ def check_password(form):
     else:
         st.session_state["authenticated"] = False
         return False
+
 
 def nav_page(page_name, timeout_secs=3):
     # https://github.com/streamlit/streamlit/issues/4832
@@ -100,15 +104,24 @@ def nav_page(page_name, timeout_secs=3):
     """ % (page_name, timeout_secs)
     html(nav_script)
 
+
 def render_welcome():
-    
     st.header('😃 Greetings!')
     chatting = st.button('Lets Chat')
     if chatting:
         nav_page("ChatGPT")
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    if st.session_state.get("authenticated") or not st.secrets.need_login:
         load_multi_pages()
         render_welcome()
-        render_footer()
+    else:
+        hide_multi_pages()
+        login_form = st.empty()
+        if check_password(login_form.form(key='login')):
+            login_form.empty()
+            st.balloons()
+            load_multi_pages()
+            render_welcome()
+    render_footer()
