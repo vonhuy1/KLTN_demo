@@ -16,7 +16,7 @@ from utils import render_footer
 def hide_multi_pages():
     # https://discuss.streamlit.io/t/hide-show-pages-in-multipage-app-based-on-conditions/28642
     current_pages = get_pages(__file__)
-    page_keys = [key for key, value in current_pages.items() if value['page_name'] != 'Home']
+    page_keys = [key for key, value in current_pages.items() if value['page_name'] != 'main']
     for key in page_keys:
         del current_pages[key]
 
