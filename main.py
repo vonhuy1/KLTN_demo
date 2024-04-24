@@ -113,7 +113,7 @@ def render_welcome():
 
 
 if __name__ == '__main__':
-    if st.session_state.get("authenticated") or not st.secrets.need_login:
+    if st.session_state.get("authenticated") or not st.secrets["need_login"]:
         load_multi_pages()
         render_welcome()
     else:
