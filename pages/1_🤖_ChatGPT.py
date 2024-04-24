@@ -282,7 +282,6 @@ def render_last_answer(question, chat, zone):
     if response.status_code == 200:
       data = response.json()
       message = data["message"]
-      st.success(f"{messeage}")
     else:
        st.error("Failed to extract file data.")
 
@@ -301,8 +300,8 @@ def render_last_answer(question, chat, zone):
 
         result = requests.get(api_endpoint, params={"question": question_1})
         if result.status_code == 200:
-           result = result.json()
-           result1 = result["message"]
+           result2 = result.json()
+           result1 = result2["message"]
         else:
            st.error("Failed to handle query.")
         print(result1)
