@@ -282,9 +282,9 @@ def render_last_answer(question, chat, zone):
     if response.status_code == 200:
       data = response.json()
       message = data["message"]
-      print(message)
+      st.success(f"{messeage}")
     else:
-       print("Failed to extract file data.")
+       st.error("Failed to extract file data.")
 
     answer_zone = zone.empty()   
     chat["messages"].append({"role": "user", "content": question})
@@ -299,8 +299,12 @@ def render_last_answer(question, chat, zone):
 # Câu hỏi bạn muốn truy vấn
         question_1 = question
 
-        result = requests.get(api_endpoint, params={"question": question_1}).json()
-        result1 = result["message"]
+        result = requests.get(api_endpoint, params={"question": question_1})
+        if result.status_code == 200:
+           result = result.json()
+           result1 = result["message"]
+        else:
+           st.error("Failed to handle query.")
         print(result1)
         answer += result1
         chat["answer"][-1] = answer
