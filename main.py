@@ -113,10 +113,7 @@ def render_welcome():
 
 
 if __name__ == '__main__':
-    if st.session_state.get("authenticated") or not st.secrets["need_login"]:
-        load_multi_pages()
-        render_welcome()
-    else:
+    
         hide_multi_pages()
         login_form = st.empty()
         if check_password(login_form.form(key='login')):
@@ -124,4 +121,4 @@ if __name__ == '__main__':
             st.balloons()
             load_multi_pages()
             render_welcome()
-    render_footer()
+        render_footer()
